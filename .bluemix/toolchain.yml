@@ -8,7 +8,7 @@ required:
 dreamhome-api-repository:
   service_id: githubpublic
   parameters:
-    repo_name: "dreamhome-finders-tool-01"
+    repo_name: "dreamhome-finders-tool-02"
     repo_url: "https://github.com/cainsomniac/dreamhome-finders-tool-01.git"
     type: clone
     has_issues: true
@@ -21,14 +21,14 @@ node_js_pipeline:
     configuration:
       content: $file(node-cloudant-demo.yml)
       env:
-        REPO: "dreamhome-finders-tool-01"
+        REPO: "dreamhome-finders-tool-02"
         CF_APP_NAME: "{{deploy.parameters.app-name}}"
         REPO_BRANCH: "master"
         SPACE_NAME: "{{deploy.parameters.selected-space}}"
         ORG_NAME: "{{deploy.parameters.selected-organization}}"
         REGION_ID: "{{deploy.parameters.selected-region}}"
       execute: true
-    services: ["dreamhome-finders-tool-01"]
+    services: ["dreamhome-finders-cloudant-01"]
   hidden: [form, description]
  
 #Deployment
